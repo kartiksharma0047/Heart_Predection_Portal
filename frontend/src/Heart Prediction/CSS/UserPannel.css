@@ -1,0 +1,93 @@
+.UserPannel {
+  background-color: #00bee5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.UserSignUp {
+  width: 700px;
+  height: 500px;
+  background-color: white;
+}
+.UserSignUp h1 {
+  font-size: 2.5rem;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.UserLogIn,
+.UserSignIn {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.UserLogIn input,
+.UserSignIn input {
+  margin: 10px 0;
+  height: 30px;
+  width: 250px;
+  padding-left: 20px;
+}
+.UserLogIn button,
+.UserSignIn button {
+  background-color: white;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  transition: all 0.4s, color 0.2s;
+  &:hover {
+    background-color: #00bee5;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px white;
+  }
+}
+.UserSignUp p {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.UserSignUp p a {
+  text-decoration: none;
+  padding-left: 5px;
+}
+
+.UserLogIn div,
+.UserSignIn div {
+  position: relative;
+}
+.UserLogIn .error,
+.UserSignIn .error {
+  color: red;
+  position: absolute;
+  font-size: 12px;
+  top: 50%;
+  left: 260px;
+  width: max-content;
+  transform: translateY(-50%);
+}
+.UserSignIn svg,.UserSignUp svg{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+        transform: translateY(-50%) scale(1.2);
+    }
+}

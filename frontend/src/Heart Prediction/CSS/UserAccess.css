@@ -1,0 +1,166 @@
+.UserAccessDiv {
+  background-color: #00bee5;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+}
+.UserAccessNotLogged {
+  width: 600px;
+  height: 200px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.UserAccessNotLogged a{
+    margin-top: 20px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid gray;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    font-weight: 600;
+    &:hover{
+        color: white;
+        background-color: #00bee5;
+    }
+}
+.UserAccessLogged{
+  width: 1000px;
+  background-color: white;
+  border-radius: 10px;
+}
+.UserAccessContainer{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 10px solid #00bee5;
+}
+.UserAccessContainer a{
+  text-decoration: none;
+  width: 200px;
+  margin: 0 auto;
+  color: black;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+  text-align: center;
+  border-radius: 10px;
+  &:hover{
+    color: white;
+    background-color:#00bee5;
+    transform: scale(1.1);
+  }
+}
+.UserAccessContainer .active{
+  color: white;
+  background-color:#00bee5;
+  transform: scale(1.1);
+}
+.RedFill{
+  color: red;
+}
+.UserAccessMainContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.UserAccessMainContent h1{
+  margin-bottom: 0.2rem;
+  font-size: 2.4rem;
+}
+.UserAccessMainContent p{
+  margin-bottom: 1rem;
+}
+.UserAccessMainContent form{
+  width: 90%;
+}
+.PredectionResult{
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.PredectionResult h1{
+  width: 170px;
+  height: 170px;
+  background-color: #00bee5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 0 0 30px #6ee7ff,0 0 10px #00bee5;
+}
+.PredectionResult h2{
+  margin: 30px 0;
+}
+.PredectionResult button{
+  font-size: 1.3rem;
+  padding: 10px 50px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 3px black;
+  &:hover{
+    box-shadow: 1px 1px 5px black;
+    transform: scale(1.01);
+    background-color: #6ee7ff;
+  }
+}
+.TwoUserInputs{
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+.TwoUserInputs div{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.TwoUserInputs div .error{
+  position: absolute;
+  margin: 0;
+  font-size: 12px;
+  bottom: -15px;
+  color: red;
+}
+.UserAccessMainContent form select{
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+.SubmitUserhealthForm{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.SubmitUserhealthForm button{
+  font-size: 1.3rem;
+  padding: 10px 50px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 3px black;
+
+  &:hover{
+    box-shadow: 1px 1px 5px black;
+    transform: scale(1.01);
+    background-color: #6ee7ff;
+  }
+}

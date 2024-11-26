@@ -1,0 +1,169 @@
+.UserLogoutContainer{
+    position: relative;
+}
+.BlurUserLogout{
+    filter: blur(3px);
+}
+.UserLogout{
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.UserLogout .fa-user{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(215, 215, 215);
+    border-radius: 50%;
+    padding: 30px;
+    margin-bottom: 0.5rem;
+}
+.EmailAndNumberDiv{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 800px;
+    margin-top: 2rem;
+}
+.EmailAndNumberDiv div{
+    width: 300px;
+    height: 120px;
+    box-shadow: 0 0 3px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.EmailAndNumberDiv svg{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: rgb(215, 215, 215);
+    margin-bottom: 0.7rem;
+}
+.UpdationAndDeletion{
+    margin-top: 3rem;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.UpdationAndDeletion button{
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(231, 231, 231);
+    box-shadow: 0 0 5px black;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    &:hover{
+        background-color: #00bee5;
+        box-shadow: 0 0 7px black;
+    }
+}
+.LogoutBtn{
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0 0 3px black;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    &:hover{
+        box-shadow: 0 0 10px black;
+        transform: scale(1.1);
+    }
+}
+.UserLogout input{
+    height: 23px;
+    width: 200px;
+}
+.UserNameDiv,.EmailAndNumberDiv div{
+    position: relative;
+}
+.UserLogout .error{
+    position: absolute;
+    color: red;
+    font-size: 0.8rem;
+    bottom: 5px;
+}
+.UserNameDiv .error{
+    width: max-content;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.FinalLogoutDiv{
+    position: absolute;
+    width: 800px;
+    height: 300px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 5px black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.FinalLogoutDiv h5{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.FinalLogoutDiv p{
+    color: #e5474c;
+    background-color: #000000;
+    padding: 7px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+.EnterPasswordDiv{
+    position: relative;
+}
+.EnterPasswordDiv p{
+    position: absolute;
+    background-color: transparent;
+    width: max-content;
+    font-size:0.8rem;
+    bottom: -25px;
+}
+.EnterPasswordDiv input{
+    margin-top: 2rem;
+    font-size: 1rem;
+    border: none;
+    box-shadow: 0 0 3px black;
+    width: 250px;
+    padding-left: 10px;
+    height: 30px;
+    border-radius: 5px;
+}
+.FinalDeleteBtn{
+    margin-top: 3rem;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.2rem;
+    background-color: #e5474c;
+    color: white;
+    box-shadow: 0 0 5px black;
+    transition: all 0.4s;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.1);
+        box-shadow: 2px 2px 5px black;
+    }
+}

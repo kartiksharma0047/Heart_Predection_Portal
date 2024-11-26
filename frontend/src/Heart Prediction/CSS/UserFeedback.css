@@ -1,0 +1,219 @@
+.UserFeedback {
+  position: relative;
+}
+.UserFeedbackContainer {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.UserFeedbackContainer h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+.UserFeedbackContainer p {
+  font-size: 1.1rem;
+}
+.UserFeedbackContainer .FeedbackStars {
+  width: max-content;
+  height: max-content;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: gray;
+  margin: 1rem 0 2rem 0;
+  cursor: pointer;
+  position: relative;
+}
+.FeedbackStars svg {
+  width: 50px;
+  transition: all 0.4s;
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+.FeedbackStars .selectedStar {
+  color: rgb(255, 255, 0);
+  filter: drop-shadow(0 0 2px black);
+}
+.FeedbackArea {
+  margin-top: 1rem;
+  border-radius: 17px;
+  width: 450px;
+  height: 150px;
+  resize: none;
+  border: 1px solid gray;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  outline: none;
+  margin-bottom: 2rem;
+}
+.FeedbackBtns {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  justify-content: space-between;
+}
+.FeedbackBtns button {
+  width: 150px;
+  font-size: 1rem;
+  padding: 5px 0;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 3px black;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 1px 1px 5px black;
+  }
+  &:active {
+    box-shadow: 0 0 0 black;
+  }
+}
+.FeedbackArea::placeholder {
+  color: red;
+  font-style: italic;
+}
+.FeedbackStars .ErrorText {
+  position: absolute;
+  width: max-content;
+  color: red;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+}
+
+.BlurUserFeedbackContainer {
+  filter: blur(5px);
+}
+.FeedbackSubmittedPopup {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00bee5;
+  color: white;
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
+}
+
+.CheckUserFeedback {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.CheckUserFeedback h1 {
+  font-size: 2.5rem;
+}
+.ColorRing {
+  margin: 6rem 0;
+  transform: rotateX(0deg);
+  text-align: center;
+}
+.ColorRing p {
+  font-size: 2rem;
+}
+
+.FeedbacksLoaded{
+  margin-top: 1rem;
+  min-height: 350px;
+}
+.FeedbackItemGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: max-content;
+  margin: 2rem 0;
+}
+
+.FeedbackItem {
+  margin: 0 10px;
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  box-shadow: 0 0 4px black;
+  border-radius: 10px;
+}
+
+.FeedbackItem .Name_StarPair{
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-bottom: 10px;
+}
+.FeedbackItem .ProfileHeader{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+.FeedbackItem .ProfileHeader h2{
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.FeedbackItem .ProfileHeader svg{
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 2px black;
+  margin-right: 10px;
+}
+
+.FeedbackItem textarea{
+  width: 400px;
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  color: black;
+  padding: 10px 0 0 10px;
+}
+.FeedbackItem .StarRating svg{
+  color: rgb(215, 215, 215);
+  filter: drop-shadow(0 0 0.5px black);
+}
+.FeedbackItem .StarRating .selectedStar{
+  color: rgb(255, 255, 0);
+  filter: drop-shadow(0 0 1px black);
+}
+.PaginationButtons{
+  width: 300px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.PaginationBtn{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+.PaginationButtons .active{
+  background-color: #00bee5;
+  transform: scale(1.2);
+  box-shadow: 0 0 5px black;
+}
