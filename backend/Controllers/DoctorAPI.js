@@ -34,4 +34,38 @@ async function DisplayDoctorData(req, res) {
   }
 }
 
-export { CreateDoctorAPI, DisplayDoctorData };
+async function UpdateDoctorDataFunction(req, res) {
+  const { _id, Name, Phone_Number, Email, Age, Gender, Experience } = req.body;
+
+  try {
+    const updatedDoctor = await DoctorAPI.findByIdAndUpdate(
+      _id,
+      { Name, Phone_Number, Email, Age, Gender, Experience },
+      { new: true }
+    );
+    if (!updatedDoctor) {
+      return res.status(404).json({ message: "Doctor not found" });
+    }
+    res.status(200).json(updatedDoctor);
+  } catch (err) {
+    console.error("Error updating doctor:", err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+async function DeleteDoctorDataFunction(req, res) {
+  const { _id } = req.body;
+
+  try {
+    const deletedDoctor = await DoctorAPI.findByIdAndDelete(_id);
+    if (!deletedDoctor) {
+      return res.status(404).json({ message: "Doctor not found" });
+    }
+    res.status(200).json({ message: "Doctor successfully deleted" });
+  } catch (error) {
+    console.error("Error deleting doctor:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+export { CreateDoctorAPI, DisplayDoctorData, UpdateDoctorDataFunction, DeleteDoctorDataFunction };

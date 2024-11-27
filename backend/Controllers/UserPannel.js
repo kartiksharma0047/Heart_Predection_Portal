@@ -55,4 +55,14 @@ async function handleUserRequest(req, res) {
   }
 }
 
-export default handleUserRequest;
+async function GetUserDataFunction(req,res){
+  try {
+    const UserData = await UserAccountData.find();
+    res.status(200).json(UserData);
+  } catch (error) {
+    console.error("Error fetching User data:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+export { handleUserRequest , GetUserDataFunction};

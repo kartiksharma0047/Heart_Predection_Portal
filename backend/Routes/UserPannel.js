@@ -1,8 +1,10 @@
 import express from "express";
-import handleUserRequest from "../Controllers/UserPannel.js";
+import {handleUserRequest,GetUserDataFunction} from "../Controllers/UserPannel.js";
 
 const UserData = express.Router();
+const GetUserData=express.Router();
 
 UserData.post("/", handleUserRequest);
+GetUserData.get("/", GetUserDataFunction);
 
-export default UserData;
+export {UserData,GetUserData};

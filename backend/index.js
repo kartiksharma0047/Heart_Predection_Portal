@@ -1,10 +1,10 @@
 import express from "express";
 import cors from "cors";
 import connectToMongoDBAtlas from "./connect.js";
-import UserData from "./Routes/UserPannel.js";
+import {UserData,GetUserData} from "./Routes/UserPannel.js";
 import { DeleteUserData, UpdateUserData } from "./Routes/UserLogout.js";
 import {UserFeedback,ShowFeedback} from './Routes/UserFeedback.js'
-import {DoctorData,GetDoctorData} from "./Routes/DoctorAPI.js";
+import {DoctorData,GetDoctorData,UpdateDoctorData,DeleteDoctorData} from "./Routes/DoctorAPI.js";
 
 const app = express();
 const PORT = 5000;
@@ -30,6 +30,13 @@ app.use("/UserAccess/userFeedback",ShowFeedback);
 app.use("/AdminAccess",DoctorData);
 //        Displaying Doctor Data
 app.use("/AdminAccess/AdminDoctorInfo",GetDoctorData);
+//        Updating Doctor Data
+app.use("/AdminAccess/AdminDoctorInfo",UpdateDoctorData);
+//        Delete Doctor Data
+app.use("/AdminAccess/AdminDoctorInfo",DeleteDoctorData);
+//        Get User Data
+app.use("/AdminAccess/UserInfo",GetUserData);
+
 
 // Connect to MongoDB Atlas and start the server
 try {

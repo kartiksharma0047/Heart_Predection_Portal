@@ -11,7 +11,12 @@ function AdminDoctorInfo() {
   const [editingDoctorId, setEditingDoctorId] = useState(null); // Track the doctor being updated
   const itemsPerPage = 10;
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     const fetchDoctorData = async () => {
@@ -56,8 +61,6 @@ function AdminDoctorInfo() {
 
   const handleUpdateClick = (doctor) => {
     setEditingDoctorId(doctor._id);
-
-    // Pre-fill the form with the doctor's current data
     setValue("Name", doctor.Name);
     setValue("Phone_Number", doctor.Phone_Number);
     setValue("Email", doctor.Email);
@@ -66,28 +69,64 @@ function AdminDoctorInfo() {
     setValue("Experience", doctor.Experience);
   };
 
-  const onSubmit = async (data) => {
-    try{
-      const response=await fetch("http://localhost:5000/AdminAccess/AdminDoctorInfo",
-        {
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(data);
-        }
-      )
-      
-    }catch(err){
-      console.log(err);
+  const handleDeleteClick = async (doctor) => {
+    try {
+      const response = await fetch("http://localhost:5000/AdminAccess/AdminDoctorInfo", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ _id: doctor._id }),
+      });
+  
+      if (response.ok) {
+        setDocData((prevDocData) => prevDocData.filter((doc) => doc._id !== doctor._id));
+        alert("Doctor successfully deleted.");
+      } else {
+        const errorData = await response.json();
+        console.error("Failed to delete doctor:", errorData.message);
+        alert("Error deleting doctor: " + errorData.message);
+      }
+    } catch (err) {
+      console.error("Error while deleting doctor:", err);
+      alert("An unexpected error occurred.");
     }
-    console.log("Updated Doctor Data:", data);
+  };
+  
+
+  const onSubmit = async (data) => {
+    try {
+      const updatedData = { ...data, _id: editingDoctorId };
+      const response = await fetch(
+        "http://localhost:5000/AdminAccess/AdminDoctorInfo",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedData),
+        }
+      );
+
+      if (response.ok) {
+        const updatedDoctor = await response.json();
+        setDocData((prevDocData) =>
+          prevDocData.map((doc) =>
+            doc._id === editingDoctorId ? updatedDoctor : doc
+          )
+        );
+      } else {
+        console.error("Failed to update doctor:", response.statusText);
+      }
+    } catch (err) {
+      console.error("Error while updating doctor:", err);
+    }
     setEditingDoctorId(null);
   };
 
   return (
     <div className="DoctorInfoDiv">
-      <h1 className="DoctorsDatah1">Doctor's Data</h1>
+      <h1 className={`DoctorsDatah1 ${!groupedData.length > 0 && `DoctorsDatah1Special`}`}>Doctor's Data</h1>
       <div className="DoctorInfo">
         {groupedData.length > 0 ? (
           groupedData.map((group, index) => (
@@ -96,12 +135,17 @@ function AdminDoctorInfo() {
                 <div className="DoctorCard" key={idx}>
                   {editingDoctorId === doctor._id ? (
                     // Render inputs when editing
-                    <form onSubmit={handleSubmit(onSubmit)} className="UpdateDoctorForm">
+                    <form
+                      onSubmit={handleSubmit(onSubmit)}
+                      className="UpdateDoctorForm"
+                    >
                       <div>
                         <label>Name:</label>
                         <input
                           type="text"
-                          {...register("Name", { required: "Name is required" })}
+                          {...register("Name", {
+                            required: "Name is required",
+                          })}
                         />
                         {errors.Name && <p title={errors.Name.message}>*</p>}
                       </div>
@@ -117,7 +161,9 @@ function AdminDoctorInfo() {
                             },
                           })}
                         />
-                        {errors.Phone_Number && <p title={errors.Phone_Number.message}>*</p>}
+                        {errors.Phone_Number && (
+                          <p title={errors.Phone_Number.message}>*</p>
+                        )}
                       </div>
                       <div>
                         <label>Email:</label>
@@ -126,7 +172,8 @@ function AdminDoctorInfo() {
                           {...register("Email", {
                             required: "Email is required",
                             pattern: {
-                              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                              value:
+                                /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
                               message: "Enter a valid email",
                             },
                           })}
@@ -139,18 +186,27 @@ function AdminDoctorInfo() {
                           type="number"
                           {...register("Age", {
                             required: "Age is required",
-                            min: { value: 18, message: "Age must be at least 18" },
+                            min: {
+                              value: 18,
+                              message: "Age must be at least 18",
+                            },
                           })}
                         />
                         {errors.Age && <p title={errors.Age.message}>*</p>}
                       </div>
                       <div>
                         <label>Gender:</label>
-                        <select {...register("Gender", { required: "Gender is required" })}>
+                        <select
+                          {...register("Gender", {
+                            required: "Gender is required",
+                          })}
+                        >
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                         </select>
-                        {errors.Gender && <p title={errors.Gender.message}>*</p>}
+                        {errors.Gender && (
+                          <p title={errors.Gender.message}>*</p>
+                        )}
                       </div>
                       <div>
                         <label>Experience:</label>
@@ -158,10 +214,15 @@ function AdminDoctorInfo() {
                           type="number"
                           {...register("Experience", {
                             required: "Experience is required",
-                            min: { value: 0, message: "Experience must be positive" },
+                            min: {
+                              value: 0,
+                              message: "Experience must be positive",
+                            },
                           })}
                         />
-                        {errors.Experience && <p title={errors.Experience.message}>*</p>}
+                        {errors.Experience && (
+                          <p title={errors.Experience.message}>*</p>
+                        )}
                       </div>
                       <button type="submit">Save Changes</button>
                     </form>
@@ -203,7 +264,7 @@ function AdminDoctorInfo() {
                         >
                           Update
                         </button>
-                        <button className="DocDeleteBtn">Delete</button>
+                        <button className="DocDeleteBtn" onClick={() => handleDeleteClick(doctor)}>Delete</button>
                       </div>
                     </>
                   )}
@@ -213,7 +274,7 @@ function AdminDoctorInfo() {
           ))
         ) : (
           <Link className="DoctorInfoA" to="/AdminAccess">
-            No doctor data available
+            Loading...
           </Link>
         )}
       </div>
