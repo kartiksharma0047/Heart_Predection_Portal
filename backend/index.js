@@ -9,7 +9,7 @@ import {DoctorData,GetDoctorData,UpdateDoctorData,DeleteDoctorData} from "./Rout
 const app = express();
 const PORT = 5000;
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -41,7 +41,7 @@ app.use("/AdminAccess/UserInfo",GetUserData);
 // Connect to MongoDB Atlas and start the server
 try {
   connectToMongoDBAtlas(
-    "mongodb+srv://kartiksharma55109:ykwpuDHNZrXErf3Q@cluster0.ko9yu.mongodb.net/UserData?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://rahulsitaram0013:<db_password>@cluster0.r7pif.mongodb.net/Heart-Predection?retryWrites=true&w=majority&appName=Cluster0"
   );
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
