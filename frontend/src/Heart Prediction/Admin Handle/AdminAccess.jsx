@@ -19,7 +19,7 @@ function AdminAccess() {
 
   const onSubmit = async (data) => {
     try {
-      await fetch("https://heart-predection-portal.onrender.com/AdminAccess", {
+      await fetch("https://heart-predection-portal-server.onrender.com/AdminAccess", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

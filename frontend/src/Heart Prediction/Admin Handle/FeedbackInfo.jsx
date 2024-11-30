@@ -14,7 +14,7 @@ function AdminFeedback() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          "https://heart-predection-portal.onrender.com/AdminAccess/FeedbackInfo",
+          "https://heart-predection-portal-server.onrender.com/AdminAccess/FeedbackInfo",
           {
             method: "GET",
             headers: {

@@ -33,7 +33,7 @@ function UserPannel() {
 
   const onSignInSubmit = async (data) => {
     try {
-      const response = await fetch("https://heart-predection-portal.onrender.com/UserPannel", {
+      const response = await fetch("https://heart-predection-portal-server.onrender.com/UserPannel", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ function UserPannel() {
 
   const onLogInSubmit = async (data) => {
     try {
-      const response = await fetch("https://heart-predection-portal.onrender.com/UserPannel", {
+      const response = await fetch("https://heart-predection-portal-server.onrender.com/UserPannel", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

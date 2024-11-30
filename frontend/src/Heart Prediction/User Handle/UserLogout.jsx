@@ -44,7 +44,7 @@ function UserLogout() {
   const onSubmit = async (data) => {
     try {
       const response = await fetch(
-        "https://heart-predection-portal.onrender.com/UserAccess/UserLogout",
+        "https://heart-predection-portal-server.onrender.com/UserAccess/UserLogout",
         {
           method: "POST",
           headers: {
@@ -82,7 +82,7 @@ function UserLogout() {
   const DeleteUserAccount = async () => {
     try {
       const response = await fetch(
-        "https://heart-predection-portal.onrender.com/UserAccess/UserLogout",
+        "https://heart-predection-portal-server.onrender.com/UserAccess/UserLogout",
         {
           method: "DELETE",
           headers: {

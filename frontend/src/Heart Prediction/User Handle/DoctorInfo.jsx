@@ -12,7 +12,7 @@ function DoctorInfo() {
     const fetchDoctorData = async () => {
       try {
         const response = await fetch(
-          "https://heart-predection-portal.onrender.com/UserAccess/DoctorInfo",
+          "https://heart-predection-portal-server.onrender.com/UserAccess/DoctorInfo",
           {
             method: "POST",
             headers: {
