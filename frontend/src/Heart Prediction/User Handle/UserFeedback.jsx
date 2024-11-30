@@ -40,7 +40,7 @@ function UserFeedback() {
         const userId = userCredentials.id;
         const username = userCredentials.username;
         const response = await fetch(
-          "https://heart-predection.onrender.com/UserAccess/UserFeedback",
+          "https://heart-predection-portal.onrender.com/UserAccess/UserFeedback",
           {
             method: "POST",
             headers: {
@@ -74,7 +74,7 @@ function UserFeedback() {
     setViewFeedbacks(true);
     try {
       const response = await fetch(
-        "https://heart-predection.onrender.com/UserAccess/UserFeedback",
+        "https://heart-predection-portal.onrender.com/UserAccess/UserFeedback",
         {
           method: "GET",
           headers: {

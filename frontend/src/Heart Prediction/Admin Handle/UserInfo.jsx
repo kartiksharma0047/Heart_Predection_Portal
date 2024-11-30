@@ -15,7 +15,7 @@ function UserInfo() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          "https://heart-predection.onrender.com/AdminAccess/UserInfo",
+          "https://heart-predection-portal.onrender.com/AdminAccess/UserInfo",
           {
             method: "GET",
             headers: {

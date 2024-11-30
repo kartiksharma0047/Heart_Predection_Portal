@@ -22,7 +22,7 @@ function AdminDoctorInfo() {
     const fetchDoctorData = async () => {
       try {
         const response = await fetch(
-          "https://heart-predection.onrender.com/AdminAccess/AdminDoctorInfo",
+          "https://heart-predection-portal.onrender.com/AdminAccess/AdminDoctorInfo",
           {
             method: "POST",
             headers: {
@@ -71,7 +71,7 @@ function AdminDoctorInfo() {
 
   const handleDeleteClick = async (doctor) => {
     try {
-      const response = await fetch("https://heart-predection.onrender.com/AdminAccess/AdminDoctorInfo", {
+      const response = await fetch("https://heart-predection-portal.onrender.com/AdminAccess/AdminDoctorInfo", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ function AdminDoctorInfo() {
     try {
       const updatedData = { ...data, _id: editingDoctorId };
       const response = await fetch(
-        "https://heart-predection.onrender.com/AdminAccess/AdminDoctorInfo",
+        "https://heart-predection-portal.onrender.com/AdminAccess/AdminDoctorInfo",
         {
           method: "PUT",
           headers: {
