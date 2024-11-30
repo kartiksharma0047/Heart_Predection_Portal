@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "../CSS/UserInfo.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function UserInfo() {
   const [data, setData] = useState([]);
@@ -10,14 +12,17 @@ function UserInfo() {
 
   useEffect(() => {
     const UserDetails = async () => {
-      setIsLoading(true); // Show loading state while fetching data
+      setIsLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/AdminAccess/UserInfo", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://heart-predection.onrender.com/AdminAccess/UserInfo",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -28,7 +33,7 @@ function UserInfo() {
       } catch (err) {
         console.error("Error while fetching Users:", err);
       } finally {
-        setIsLoading(false); // Hide loading state when data is fetched
+        setIsLoading(false);
       }
     };
 
@@ -37,14 +42,12 @@ function UserInfo() {
 
   const totalPages = Math.ceil(data.length / USERS_PER_PAGE);
 
-  // Get users for the current page
   const getUsersForPage = () => {
     const startIndex = (currentPage - 1) * USERS_PER_PAGE;
     const endIndex = startIndex + USERS_PER_PAGE;
     return data.slice(startIndex, endIndex);
   };
 
-  // Group users into pairs for display
   const groupUsersIntoPairs = (users) => {
     const pairs = [];
     for (let i = 0; i < users.length; i += 2) {
@@ -65,9 +68,20 @@ function UserInfo() {
             <div className="UserPair" key={index}>
               {pair.map((user, idx) => (
                 <div className="UserCard" key={idx}>
-                  <p><strong>Name:</strong> {user.Username}</p>
-                  <p><strong>Email:</strong> {user.Email}</p>
-                  <p><strong>Phone:</strong> {user.MobileNumber}</p>
+                  <div className="UserProfile" title={user.Username}>
+                    <FontAwesomeIcon icon={faUser} />
+                    <h2>{user.Username.length>15 ? user.Username.slice(0,15)+"...":user.Username}</h2>
+                  </div>
+                  <div className="User_Mail_Num">
+                    <div title={user.Email}>
+                      <FontAwesomeIcon icon={faEnvelope} />
+                      <p>{user.Email.length>18 ? user.Email.slice(0,18)+"...":user.Email}</p>
+                    </div>
+                    <div>
+                      <FontAwesomeIcon icon={faPhone} />
+                      <p>{user.MobileNumber}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -80,7 +94,9 @@ function UserInfo() {
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index}
-            className={`PageButton ${currentPage === index + 1 ? "active" : ""}`}
+            className={`PageButton ${
+              currentPage === index + 1 ? "active" : ""
+            }`}
             onClick={() => setCurrentPage(index + 1)}
           >
             {index + 1}

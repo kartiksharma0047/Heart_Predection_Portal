@@ -8,5 +8,87 @@
 }
 .UserInfoDiv h1{
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+}
+.UserInfo{
+    width: 100%;
+}
+.UserPair{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+}
+.UserCard,.UserCard .UserProfile,.User_Mail_Num div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.UserCard{
+    width: 500px;
+    padding: 20px 0;
+    box-shadow: 0 0 4px black;
+    border-radius: 10px;
+}
+.UserCard .UserProfile{
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 4px black;
+    padding: 10px 0;
+}
+.UserCard .UserProfile svg{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.UserCard .User_Mail_Num{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+}
+.UserCard .User_Mail_Num div{
+    box-shadow: 0 0 3px black;
+    width: 230px;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+.UserCard .User_Mail_Num div svg{
+    height: 18px;
+    margin-bottom: 10px;
+}
+.UserInfoDiv .Pagination{
+    min-width: 200px;
+    max-width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.UserInfoDiv .Pagination button{
+    font-size: 1.2rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 3px black;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover{
+        background-color: #00bee5;
+        color: white;
+    }
+}
+.UserInfoDiv .Pagination .active{
+    transform: scale(1.2);
+    background-color: transparent;
+    color: #00bee5;
+    box-shadow: 0 0 10px #00bee5;
+    &:hover{
+        background-color: transparent;
+        color:#00bee5;
+    }
 }

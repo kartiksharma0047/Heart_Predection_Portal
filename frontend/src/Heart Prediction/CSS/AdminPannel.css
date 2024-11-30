@@ -57,7 +57,7 @@
     border: 2px solid gray;
     font-size: 1.1rem;
 }
-.AdminPassInput{
+.AdminVerification div{
     position: relative;
 }
 .AdminPassInput svg{
@@ -70,6 +70,13 @@
     &:hover{
         transform:translateY(-50%) scale(1.2);
     }
+}
+.AdminVerification .error{
+    position: absolute;
+    color: red;
+    bottom: -7px;
+    font-size: 14px;
+    left: 10px;
 }
 .AdminVerification button{
     margin-top: 40px;

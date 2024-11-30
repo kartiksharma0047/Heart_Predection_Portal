@@ -19,7 +19,7 @@ function AdminAccess() {
 
   const onSubmit = async (data) => {
     try {
-      await fetch("http://localhost:5000/AdminAccess", {
+      await fetch("https://heart-predection.onrender.com/AdminAccess", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function AdminAccess() {
 
           {isRootAdminAccess && (
             <div className="AdminAccessMainContent">
-              <h1 className="AdminShowCase">Welcome "Admin name"</h1>
+              <h1 className="AdminShowCase">Welcome Rahul and Sitaram</h1>
               <form className="DocDetails" onSubmit={handleSubmit(onSubmit)}>
                 <h2>Add Doctor Details</h2>
 

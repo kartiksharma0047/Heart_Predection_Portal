@@ -1,0 +1,136 @@
+.FeedbackInfoDiv {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+.FeedbackInfoDiv .CheckAdminFeedback {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.FeedbackInfoDiv h1{
+    font-size: 2.5rem;
+}
+.FeedbackInfoDiv .FeedbacksLoaded{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.AdminFeedbackRating{
+    margin-top:2rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px goldenrod,0 0 10px gold, 0 0 5px white,0 0 2px yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.AdminFeedbackRating h1{
+    font-size: 3rem;
+}
+.AdminFeedbackRating p{
+    width: 70px;
+    text-align: center;
+}
+.AdminFeedbackLoadingP{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+.FeedbackInfoDiv .FeedbacksLoaded {
+  margin-top: 1rem;
+  min-height: 0px !important;
+}
+.FeedbackItemGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: max-content;
+  margin: 2rem 0;
+}
+
+.FeedbackItem {
+  margin: 0 10px;
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  box-shadow: 0 0 4px black;
+  border-radius: 10px;
+}
+
+.FeedbackItem .Name_StarPair {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-bottom: 10px;
+}
+.FeedbackItem .ProfileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+.FeedbackItem .ProfileHeader h2 {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.FeedbackItem .ProfileHeader svg {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 2px black;
+  margin-right: 10px;
+}
+
+.FeedbackItem textarea {
+  width: 400px;
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  color: black;
+  padding: 10px 0 0 10px;
+}
+.FeedbackItem .StarRating svg {
+  color: rgb(215, 215, 215);
+  filter: drop-shadow(0 0 0.5px black);
+}
+.FeedbackItem .StarRating .selectedStar {
+  color: rgb(255, 255, 0);
+  filter: drop-shadow(0 0 1px black);
+}
+.PaginationButtons {
+  width: 300px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.PaginationBtn {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+.PaginationButtons .active {
+  background-color: #00bee5;
+  transform: scale(1.2);
+  box-shadow: 0 0 5px black;
+}

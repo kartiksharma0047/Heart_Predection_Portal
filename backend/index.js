@@ -24,6 +24,8 @@ app.use("/UserAccess/UserLogout",DeleteUserData);
 app.use("/UserAccess/UserFeedback",UserFeedback);
 //        Show Users Feedback
 app.use("/UserAccess/userFeedback",ShowFeedback);
+//        Get Doctor Data
+app.use('/UserAccess/DoctorInfo',GetDoctorData);
 
 // Admin Handling
 //        Creating Doctor Data
@@ -36,15 +38,17 @@ app.use("/AdminAccess/AdminDoctorInfo",UpdateDoctorData);
 app.use("/AdminAccess/AdminDoctorInfo",DeleteDoctorData);
 //        Get User Data
 app.use("/AdminAccess/UserInfo",GetUserData);
+//        Get User Feedback
+app.use("/AdminAccess/FeedbackInfo",ShowFeedback);
 
 
 // Connect to MongoDB Atlas and start the server
 try {
   connectToMongoDBAtlas(
-    "mongodb+srv://rahulsitaram0013:<db_password>@cluster0.r7pif.mongodb.net/Heart-Predection?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://kartiksharma55109:ykwpuDHNZrXErf3Q@cluster0.ko9yu.mongodb.net/UserData?retryWrites=true&w=majority&appName=Cluster0"
   );
   app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running is Running at PORT : ${PORT}`);
   });
 } catch (err) {
   console.log(err);
