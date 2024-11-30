@@ -8,8 +8,13 @@ import {DoctorData,GetDoctorData,UpdateDoctorData,DeleteDoctorData} from "./Rout
 
 const app = express();
 const PORT = 5000;
+const corsOptions = {
+  origin: "https://heart-predection-portal.onrender.com", // Frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+};
 
-app.use(cors({ origin: "*" }));
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
