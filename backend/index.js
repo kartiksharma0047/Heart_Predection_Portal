@@ -1,19 +1,25 @@
 import express from "express";
 import cors from "cors";
+import { configDotenv } from "dotenv";
 import connectToMongoDBAtlas from "./connect.js";
-import {UserData,GetUserData} from "./Routes/UserPannel.js";
+import { UserData, GetUserData } from "./Routes/UserPannel.js";
 import { DeleteUserData, UpdateUserData } from "./Routes/UserLogout.js";
-import {UserFeedback,ShowFeedback} from './Routes/UserFeedback.js'
-import {DoctorData,GetDoctorData,UpdateDoctorData,DeleteDoctorData} from "./Routes/DoctorAPI.js";
+import { UserFeedback, ShowFeedback } from "./Routes/UserFeedback.js";
+import {
+  DoctorData,
+  GetDoctorData,
+  UpdateDoctorData,
+  DeleteDoctorData,
+} from "./Routes/DoctorAPI.js";
 
 const app = express();
-const PORT = 5000;
 const corsOptions = {
-  origin: "https://heart-predection-portal.onrender.com", // Frontend URL
+  origin: `${process.env.Frontend_URL}`, // Frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
 };
 
+configDotenv();
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,36 +30,33 @@ app.use("/UserPannel", UserData);
 //        Logout User funcationality
 app.use("/UserAccess/UserLogout", UpdateUserData);
 //        User Data Changes
-app.use("/UserAccess/UserLogout",DeleteUserData);
+app.use("/UserAccess/UserLogout", DeleteUserData);
 //        User Feedback Storing
-app.use("/UserAccess/UserFeedback",UserFeedback);
+app.use("/UserAccess/UserFeedback", UserFeedback);
 //        Show Users Feedback
-app.use("/UserAccess/userFeedback",ShowFeedback);
+app.use("/UserAccess/userFeedback", ShowFeedback);
 //        Get Doctor Data
-app.use('/UserAccess/DoctorInfo',GetDoctorData);
+app.use("/UserAccess/DoctorInfo", GetDoctorData);
 
 // Admin Handling
 //        Creating Doctor Data
-app.use("/AdminAccess",DoctorData);
+app.use("/AdminAccess", DoctorData);
 //        Displaying Doctor Data
-app.use("/AdminAccess/AdminDoctorInfo",GetDoctorData);
+app.use("/AdminAccess/AdminDoctorInfo", GetDoctorData);
 //        Updating Doctor Data
-app.use("/AdminAccess/AdminDoctorInfo",UpdateDoctorData);
+app.use("/AdminAccess/AdminDoctorInfo", UpdateDoctorData);
 //        Delete Doctor Data
-app.use("/AdminAccess/AdminDoctorInfo",DeleteDoctorData);
+app.use("/AdminAccess/AdminDoctorInfo", DeleteDoctorData);
 //        Get User Data
-app.use("/AdminAccess/UserInfo",GetUserData);
+app.use("/AdminAccess/UserInfo", GetUserData);
 //        Get User Feedback
-app.use("/AdminAccess/FeedbackInfo",ShowFeedback);
-
+app.use("/AdminAccess/FeedbackInfo", ShowFeedback);
 
 // Connect to MongoDB Atlas and start the server
 try {
-  connectToMongoDBAtlas(
-    "mongodb+srv://kartiksharma55109:ykwpuDHNZrXErf3Q@cluster0.ko9yu.mongodb.net/UserData?retryWrites=true&w=majority&appName=Cluster0"
-  );
-  app.listen(PORT, () => {
-    console.log(`Server running is Running at PORT : ${PORT}`);
+  connectToMongoDBAtlas(`${process.env.mongoDBConnectionAPI}`);
+  app.listen(process.env.PORT, () => {
+    console.log(`Server running is Running at PORT : ${process.env.PORT}`);
   });
 } catch (err) {
   console.log(err);

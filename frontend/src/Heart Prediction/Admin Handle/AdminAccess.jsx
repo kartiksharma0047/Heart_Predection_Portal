@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { DataContext } from "../DataContext";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
@@ -49,7 +49,7 @@ function AdminAccess() {
 
           {isRootAdminAccess && (
             <div className="AdminAccessMainContent">
-              <h1 className="AdminShowCase">Welcome Rahul and Sitaram</h1>
+              <h1 className="AdminShowCase">Welcome Kartik Sharma</h1>
               <form className="DocDetails" onSubmit={handleSubmit(onSubmit)}>
                 <h2>Add Doctor Details</h2>
 
